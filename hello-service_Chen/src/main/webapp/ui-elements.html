@@ -1,22 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-    <meta charset="utf-8" />
+      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dream</title>
-    <!-- Bootstrap Styles-->
+	<!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
+     <!-- FontAwesome Styles-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
+        <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+     <!-- Google Fonts-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -245,245 +241,124 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> 镜像信息汇总</a>
+                        <a href="index.html"><i class="fa fa-dashboard"></i> 镜像信息汇总</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> 容器管理</a>
+                        <a href="ui-elements.html" class="active-menu"><i class="fa fa-desktop"></i> 容器管理</a>
                     </li>
 					<li>
-                        <a href=""><i class="fa fa-bar-chart-o"></i> 数据库管理</a>
+                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> 数据库管理</a>
                     </li>
-                    <!--<li>-->
-                        <!--<a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>-->
-                    <!--</li>-->
-                    
-                    <!--<li>-->
-                        <!--<a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="form.html"><i class="fa fa-edit"></i> Forms </a>-->
-                    <!--</li>-->
 
 
-                    <!--<li>-->
-                        <!--<a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>-->
-                        <!--<ul class="nav nav-second-level">-->
-                            <!--<li>-->
-                                <!--<a href="#">Second Level Link</a>-->
-                            <!--</li>-->
-                            <!--<li>-->
-                                <!--<a href="#">Second Level Link</a>-->
-                            <!--</li>-->
-                            <!--<li>-->
-                                <!--<a href="#">Second Level Link<span class="fa arrow"></span></a>-->
-                                <!--<ul class="nav nav-third-level">-->
-                                    <!--<li>-->
-                                        <!--<a href="#">Third Level Link</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href="#">Third Level Link</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href="#">Third Level Link</a>-->
-                                    <!--</li>-->
 
-                                <!--</ul>-->
 
-                            <!--</li>-->
-                        <!--</ul>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>-->
-                    <!--</li>-->
+
                 </ul>
 
             </div>
 
         </nav>
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
+        <div id="page-wrapper" >
             <div id="page-inner">
-
-
-                <div class="row">
+			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            信息汇总 <small>ip_addr=192.168.1.111</small>
+                            数据库容器管理
                         </h1>
                     </div>
-                </div>
-                <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-green">
-                            <div class="panel-body">
-                                <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>2</h3>
-                            </div>
-                            <div class="panel-footer back-footer-green">
-                                镜像数量
+             </div>
+                 <!-- /. ROW  -->
+				 
+				
+			<div class="row">
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-blue">
-                            <div class="panel-body">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                                <h3>2 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-blue">
-                                容器数
+			  <div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				 Mysql 数据库开关
+				</div>        
+							  
+							<div class="panel-body">
+                                <a href="#" class="btn btn-success" id="dockerstart">开启</a>
+                                <a href="#" class="btn btn-danger" id="dockerstop">关闭</a>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red">
-                            <div class="panel-body">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>1 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-red">
-                                开启容器
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-brown">
-                            <div class="panel-body">
-                                <i class="fa fa-users fa-5x"></i>
-                                <h3>1 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-brown">
-                                异构数据库
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. ROW  -->
-
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Docker images
-                            </div> 
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dockerimages">
-                                        
-                                    </table>
+                                <div class="alert alert-success" id="startsuccess">
+                                    <strong>启动成功</strong>
                                 </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Docker containers
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dockercontainers">
-
-                                    </table>
+                                <div class="alert alert-danger" id="startfailed">
+                                    <strong>已关闭</strong>
                                 </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-                <!-- /. ROW  -->
+							</div>
+				</div>
+			`</div>
+				</div>								
+									
+
+                 <!-- /. ROW  -->
+
+
+             <!-- /. PAGE INNER  -->
             </div>
-            <!-- /. PAGE INNER  -->
+         <!-- /. PAGE WRAPPER  -->
         </div>
-        <!-- /. PAGE WRAPPER  -->
     </div>
-    <!-- /. WRAPPER  -->
+     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
-    <!-- Bootstrap Js -->
+      <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
+
+      <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
     <script src="assets/js/jquery.metisMenu.js"></script>
     <script>
-	$(function(){
-	    $.post("hello-consumer",
-            function(data){
-                // alert("Data Loaded: " + data);
-                queryTable(data);
-	    },"json"
-        );
+            $('#startsuccess').hide();
+            $('#startfailed').hide();
+            $('#dockerstart').click(
+                function () {
+                    $.post("dockercontainerStart",
+                        function(data){
+                            if (data=="success"){
+                                $('#startsuccess').show();
+                                $('#startfailed').hide();
+                            }
+                            else{
+                                $('#startfailed').show();
+                            }
+                        },"json"
+                    );
+                }
 
-        function queryTable(data){
-        	var $head =$('<thead><tr><td>REPOSITORY</td><td>TAG</td><td>IMAGE ID</td><td>CREATED</td><td>SIZE</td></tr></thead>');
-        	$('#dockerimages').append($head);
-        	for(var i=0;i<data.length;i++){
-
-                var row=eval('(' + data[i] + ')');
-        		var $tr = $('<tr></tr>');
-        		var repository=$('<td>'+row['REPOSITORY'] + '</td>');
-        		var tag=$('<td>'+row['TAG'] + '</td>');
-        		var imageid=$('<td>'+row['IMAGE ID'] + '</td>');
-                var created=$('<td>'+row['CREATED'] + '</td>');
-                var size=$('<td>'+row['SIZE'] + '</td>');
-        		 $tr.append(repository).append(tag).append(imageid).append(created).append(size);
-        		 $('#dockerimages').append($tr);
-        	}
-        }
-	});
-	</script>
-
-
-    <script>
-        $(function(){
-            $.post("dockercontainerStatus",
-                function(data){
-                    // alert("Data Loaded: " + data);
-                    queryTable(data);
-                },"json"
             );
 
-            function queryTable(data){
-                var $head =$('<thead><tr><td>CONTAINER ID</td><td>COMMAND</td><td>IMAGE</td><td>CREATED</td><td>PORTS</td><td>STATUS</td><td>NAMES</td></tr></thead>');
-                $('#dockercontainers').append($head);
-                for(var i=0;i<data.length;i++){
 
-                    var row=eval('(' + data[i] + ')');
-
-
-                    var $tr = $('<tr></tr>');
-                    var container_id=$('<td>'+row['CONTAINER ID'] + '</td>');
-                    var command=$('<td>'+row['COMMAND'] + '</td>');
-                    var image=$('<td>'+row['IMAGE'] + '</td>');
-                    var created=$('<td>'+row['CREATED'] + '</td>');
-                    var port=$('<td>'+row['PORTS'] + '</td>');
-                    var status=$('<td>'+row['STATUS'] + '</td>');
-                    var name=$('<td>'+row['NAMES'] + '</td>');
-                    $tr.append(container_id).append(command).append(image).append(created).append(port).append(status).append(name);
-                    $('#dockercontainers').append($tr);
-                }
-            }
-        });
     </script>
+        <script>
 
-    <!-- Morris Chart Js -->
-    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+            $('#dockerstop').click(
+                function () {
+                    $.post("dockercontainerStop",
+                        function(data){
+                            if (data=="success"){
+                                $('#startsuccess').hide();
+                                $('#startfailed').show();
+                            }
+                            else{
+                                $('#startfailed').show();
+                            }
+                        },"json"
+                    );
+                }
 
-	
+            );
 
+
+        </script>
 </body>
-
 </html>

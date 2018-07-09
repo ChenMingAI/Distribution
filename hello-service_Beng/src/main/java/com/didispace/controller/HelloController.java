@@ -37,7 +37,7 @@ public class HelloController {
         Runtime rt = Runtime.getRuntime();
         try{
             rt.exec(cmd);
-            return "success";
+            return JSON.toJSONString("success");
 
         }
         catch(IOException e){
