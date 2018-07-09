@@ -275,10 +275,10 @@
 			<div class="row">
 
 			  <div class="col-md-12">
-			<div class="panel panel-default">
+			    <div class="panel panel-default">
 				<div class="panel-heading">
 				 Mysql 数据库开关
-				</div>        
+				    </div>
 							  
 							<div class="panel-body">
                                 <a href="#" class="btn btn-success" id="dockerstart">开启</a>
@@ -293,13 +293,39 @@
                                 </div>
 
 							</div>
-				</div>
-			`</div>
-				</div>								
+				    </div>
+			    </div>
+            </div>
+
+
+
 									
 
                  <!-- /. ROW  -->
+                <div class="row">
 
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Orcale 数据库开关
+                            </div>
+
+                            <div class="panel-body">
+                                <a href="#" class="btn btn-success" id="orcalestart">开启</a>
+                                <a href="#" class="btn btn-danger" id="orcalestop">关闭</a>
+
+                                <div class="alert alert-success" id="orcalesuccess">
+                                    <strong>启动成功</strong>
+                                </div>
+
+                                <div class="alert alert-danger" id="orcalefailed">
+                                    <strong>已关闭</strong>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
              <!-- /. PAGE INNER  -->
             </div>
@@ -340,23 +366,8 @@
 
     </script>
         <script>
-
-            $('#dockerstop').click(
-                function () {
-                    $.post("dockercontainerStop",
-                        function(data){
-                            if (data=="success"){
-                                $('#startsuccess').hide();
-                                $('#startfailed').show();
-                            }
-                            else{
-                                $('#startfailed').show();
-                            }
-                        },"json"
-                    );
-                }
-
-            );
+            $('#orcalesuccess').hide();
+            $('#orcalefailed').hide();
 
 
         </script>
