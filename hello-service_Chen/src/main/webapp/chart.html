@@ -8,6 +8,8 @@
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
         <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
@@ -244,12 +246,11 @@
                         <a href="index.html"><i class="fa fa-dashboard"></i> 镜像信息汇总</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html" class="active-menu"><i class="fa fa-desktop"></i> 容器管理</a>
+                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> 容器管理</a>
                     </li>
 					<li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> 数据库管理</a>
+                        <a href="chart.html" class="active-menu"><i class="fa fa-bar-chart-o"></i> 数据库管理</a>
                     </li>
-
 
 
 
@@ -265,126 +266,95 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            数据库容器管理
+                            异构数据库 <small>内容展示</small>
                         </h1>
                     </div>
-             </div>
-                 <!-- /. ROW  -->
-				 
-				
-			<div class="row">
-
-			  <div class="col-md-12">
-			    <div class="panel panel-default">
-				<div class="panel-heading">
-				 Mysql 数据库开关
-				    </div>
-							  
-							<div class="panel-body">
-                                <a href="#" class="btn btn-success" id="dockerstart">开启</a>
-                                <a href="#" class="btn btn-danger" id="dockerstop">关闭</a>
-                                <a href="#" class="btn btn-warning">删除</a>
-                                <div class="alert alert-success" id="startsuccess">
-                                    <strong>启动成功</strong>
-                                </div>
-
-                                <div class="alert alert-danger" id="startfailed">
-                                    <strong>已关闭</strong>
-                                </div>
-
-							</div>
-				    </div>
-			    </div>
-            </div>
-
-
-
-									
-
+                </div> 
                  <!-- /. ROW  -->
                 <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
-                    <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Orcale 数据库开关
+                                Mysql Data
                             </div>
-
                             <div class="panel-body">
-                                <a href="#" class="btn btn-success" id="orcalestart">开启</a>
-                                <a href="#" class="btn btn-danger" id="orcalestop">关闭</a>
-                                <a href="#" class="btn btn-warning">删除</a>
-                                <div class="alert alert-success" id="orcalesuccess">
-                                    <strong>启动成功</strong>
-                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="sqldata">
 
-                                <div class="alert alert-danger" id="orcalefailed">
-                                    <strong>已关闭</strong>
+                                    </table>
                                 </div>
-
                             </div>
                         </div>
+
                     </div>
                 </div>
 
+                 <!-- /. ROW  -->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Orcale Data
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="orcaledata">
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+
+				</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
-    </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $.post("sqldataquery",
+                function(data){
+                    queryTable(data);
+                },"json"
+            );
+
+            function queryTable(data){
+                var $head =$('<thead><tr><td>ID</td><td>user_name</td><td>PASSWORD</td></tr></thead>');
+                $('#sqldata').append($head);
+
+                for(var i=0;i<data.length;i++){
+
+                    var $tr = $('<tr></tr>');
+
+                    var id=$('<td>'+data[i]['id'] + '</td>');
+                    var user_name=$('<td>'+data[i]['user_name'] + '</td>');
+                    var passwd=$('<td>'+data[i]['passwd'] + '</td>');
+
+                    $tr.append(id).append(user_name).append(passwd);
+                    $('#sqldata').append($tr);
+                }
+            }
+        });
+    </script>
       <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-
-      <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
     <script src="assets/js/jquery.metisMenu.js"></script>
-    <script>
-            $('#startsuccess').hide();
-            $('#startfailed').hide();
-            $('#dockerstart').click(
-                function () {
-                    $.post("dockercontainerStart",
-                        function(data){
-                            if (data=="success"){
-                                $('#startsuccess').show();
-                                $('#startfailed').hide();
-                            }
-                            else{
-                                $('#startfailed').show();
-                            }
-                        },"json"
-                    );
-                }
-
-            );
-            $('#dockerstop').click(
-                function () {
-                    $.post("dockercontainerStop",
-                        function(data){
-                            if (data=="success"){
-                                $('#startsuccess').hide();
-                                $('#startfailed').show();
-                            }
-                            else{
-                                $('#startfailed').show();
-                            }
-                        },"json"
-                    );
-                }
-
-            );
-
-    </script>
-        <script>
-            $('#orcalesuccess').hide();
-            $('#orcalefailed').hide();
+     <!-- Morris Chart Js -->
+     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
 
 
-        </script>
+    
+   
 </body>
 </html>

@@ -17,6 +17,11 @@ public class ConsumerController{
         String res=restTemplate.getForObject("http://hello-service/hello",String.class);
         return res;
     }
+    @RequestMapping(value="/sqldataquery")
+    public String sqldataquery(){
+        String res=restTemplate.getForObject("http://hello-service/MysqlDataQuery",String.class);
+        return res;
+    }
 
 
     @RequestMapping(value="/dockercontainerStart")

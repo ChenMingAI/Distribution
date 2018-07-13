@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Mapper
 @Repository public interface UserInfoMapper {
-    @Select("select count(*) from user_info")
-    int selectAll();
+    @Select("select * from user_info")
+    List<UserInfo> selectAll();
 }

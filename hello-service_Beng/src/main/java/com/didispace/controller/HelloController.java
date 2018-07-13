@@ -30,6 +30,9 @@ public class HelloController {
 
     @Autowired
     DiscoveryClient discoveryClient;
+
+
+
     @Autowired
     private UserInfoMapper userInfoMapper;
     private static final ObjectMapper mapper = new ObjectMapper();
@@ -160,6 +163,13 @@ public class HelloController {
     public String ContainerManager() {
 
         return DockerContainerStatusQuery("docker ps -a");
+
+    }
+    @RequestMapping(value="/MysqlDataQuery")
+    public String MysqlDataQuery() {
+
+        List<UserInfo> uf=userInfoMapper.selectAll();
+        return JSON.toJSONString(uf);
 
     }
 }

@@ -23,10 +23,10 @@ public class Testing {
     @Test
     public void Test(){
 
-        int num=userInfoMapper.selectAll();
+        List<UserInfo> uf=userInfoMapper.selectAll();
 
 //        String res1=mapper.writeValueAsString(userInfos);
-        System.out.println(num);
+        System.out.println(uf.get(0).getUser_name());
 
     }
 
